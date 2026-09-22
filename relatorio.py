@@ -18,4 +18,4 @@ for row in resultados:
     print(f" Curso: {row[2]}")
     print(f" Matrícula: {row[3]}")
     print("-"*45)
-conexao.close()
+conexao.close() 
