@@ -8,13 +8,11 @@ public class Processador {
 
     public static void main(String[] args) {
 
-        try (
+        try {
             Connection con = DriverManager.getConnection(
                 "jdbc:mysql://localhost:3306/sistema_poliglota",
-                "root",
-                ""
-            )
-        ) {
+                "root", "" );
+        {
 
             Statement stmt = con.createStatement();
 
@@ -28,31 +26,20 @@ public class Processador {
                 String nome = rs.getString("nome").toUpperCase();
 
                 String matriculaFicticia = "MAT-" + (1000 + id);
-
-                String sql = "UPDATE alunos SET nome = ?, matricula = ? WHERE id = ?";
-
-                PreparedStatement pstmt = con.prepareStatement(sql);
-
-                pstmt.setString(1, nome);
-                pstmt.setString(2, matriculaFicticia);
-                pstmt.setInt(3, id);
-
-                pstmt.executeUpdate();
-
-                System.out.println("Java processou o aluno: " + nome);
+                             
+                stmt.executeUpdate("UPDATE alunos SET nome = "+nome+", matricula = "+ matriculaFicticia+" WHERE id = " + id);
+                                
+                System.out.println("Java processou o aluno: " + nome | Matricula: " +matriculaFiciticia);
                 System.out.println("Nova matrícula: " + matriculaFicticia);
-
-                pstmt.close();
 
             } else {
                 System.out.println("Nenhum aluno pendente para processar.");
             }
 
-            rs.close();
-            stmt.close();
-
+            con.close();
+            
         } catch (Exception e) {
-            System.out.println("Erro ao processar aluno: " + e.getMessage());
+            System.out.println("Erro: " + e.getMessage());
         }
     }
 }
