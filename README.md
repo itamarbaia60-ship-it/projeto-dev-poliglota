@@ -90,3 +90,8 @@ O desenvolvimento é conduzido em trio, com fluxo de trabalho estruturado por me
 Automação de loop/daemon em Java: implementação de um mecanismo de escuta contínua no Processador.java, eliminando a necessidade de reexecução manual para o processamento de novos registros pendentes.
 Tratamento de erros e logs avançados: ampliação do tratamento de exceções de conexão com o banco de dados, com geração de registros de log em arquivo para auditoria das transações realizadas por cada módulo.
 Dashboard web em Python: evolução da interface CLI de relatórios para uma aplicação web interativa, utilizando frameworks como Streamlit ou Flask/Dash.
+
+# Integrantes do Grupo
+* Itamar Baia
+* Kamile Victoria
+* Joelwerton Gomes
